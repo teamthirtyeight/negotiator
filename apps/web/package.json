@@ -15,7 +15,8 @@
     "db:ledger-gate": "tsx --env-file-if-exists=.env.local scripts/ledger-gate.mts",
     "launch:check": "tsx scripts/launch-check.mts",
     "test:woo": "WOO_E2E_URL=${WOO_E2E_URL:-http://localhost:8080} vitest run src/lib/woocommerce/woocommerce.docker.test.ts",
-    "db:seed-mobile": "tsx scripts/seed-mobile-e2e.mts"
+    "db:seed-mobile": "tsx scripts/seed-mobile-e2e.mts",
+    "haggle-reels": "tsx scripts/haggle-reels.mts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.87",

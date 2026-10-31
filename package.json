@@ -8,7 +8,8 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
-    "check": "turbo run typecheck lint test build"
+    "check": "turbo run typecheck lint test build",
+    "haggle-reels": "pnpm --filter @ghostcart/web haggle-reels"
   },
   "devDependencies": {
     "turbo": "2.5.8"

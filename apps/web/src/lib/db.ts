@@ -4,7 +4,8 @@ import path from "node:path";
 /**
  * The Postgres database for seller data (orgs, stores, catalogue, policies and, later, payments).
  * Neon when DATABASE_URL is set. Without it, local development and tests use an embedded Postgres
- * (persisted in apps/web/.pglite, or in memory under Vitest); production refuses to run without Neon.
+ * (persisted in apps/web/.pglite, or the folder PGLITE_DATA_DIR names, or in memory under Vitest);
+ * production refuses to run without Neon.
  */
 export class DatabaseUnavailableError extends Error {
   constructor() {
@@ -23,6 +24,10 @@ export function getDb(): Promise<Db> {
   // Tests and `next build` use a throwaway in-memory database: a build running while `next dev` holds
   // .pglite would open the same files from a second process and corrupt them.
   const ephemeral = process.env.VITEST || process.env.NEXT_PHASE === "phase-production-build";
-  g.__ghostcartDb = import("@ghostcart/db/local").then(({ createLocalDb }) => createLocalDb(migrations, ephemeral ? undefined : ".pglite"));
+  // A tool that runs its own dev server (scripts/haggle-reels.mts) points this at a folder of its own,
+  // outside the repo: it never shares files with the developer's `next dev`, and the dev watcher never
+  // sees its writes (a second data folder inside apps/web makes Turbopack reload on every request).
+  const dataDir = process.env.PGLITE_DATA_DIR || ".pglite";
+  g.__ghostcartDb = import("@ghostcart/db/local").then(({ createLocalDb }) => createLocalDb(migrations, ephemeral ? undefined : dataDir));
   return g.__ghostcartDb;
 }
