@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { connection } from "next/server";
 import { Suspense } from "react";
-import { AccountLink } from "@/components/account-link";
 import { CatalogueGrid } from "@/components/catalogue-grid";
-import { LanguageSwitch } from "@/components/language-switch";
 import { Ticker } from "@/components/ticker";
 import { t, type Lang } from "@/lib/i18n";
 import { getLang } from "@/lib/lang";
@@ -24,18 +22,7 @@ async function HomeBody() {
   const lang = await getLang();
   return (
     <main lang={lang} className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 pb-16 pt-8 sm:px-8">
-      <header className="flex flex-wrap items-center justify-between gap-3">
-        <span className="text-xl font-bold tracking-tight">GhostCart</span>
-        <nav className="flex items-center gap-5">
-          <LanguageSwitch lang={lang} />
-          <Link href="/sell" className="text-muted hover:text-fg">
-            {t(lang, "home.forSellers")}
-          </Link>
-          <AccountLink />
-        </nav>
-      </header>
-
-      <section className="mt-14 sm:mt-20">
+      <section className="mt-6 sm:mt-10">
         <h1 className="max-w-3xl text-[clamp(2.4rem,6.5vw,5rem)] font-bold leading-[0.95] tracking-[-0.03em]">{t(lang, "home.tagline")}</h1>
         <p className="mt-6 max-w-xl text-lg text-muted sm:text-xl">{t(lang, "home.intro")}</p>
         <form action="/search" className="mt-8 flex max-w-2xl flex-col gap-3 sm:flex-row">
@@ -71,17 +58,6 @@ async function HomeBody() {
           </div>
         ))}
       </section>
-      <footer className="mt-16 flex flex-wrap gap-6 border-t border-line pt-6 text-sm text-muted">
-        <Link href="/account" className="hover:text-fg">
-          {t(lang, "footer.account")}
-        </Link>
-        <Link href="/grievance" className="hover:text-fg">
-          {t(lang, "footer.complaint")}
-        </Link>
-        <Link href="/legal" className="hover:text-fg">
-          {t(lang, "footer.legal")}
-        </Link>
-      </footer>
     </main>
   );
 }

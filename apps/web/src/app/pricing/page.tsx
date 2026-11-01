@@ -16,15 +16,7 @@ export default function PricingPage() {
   const rupees = (paise: number) => `₹${(paise / 100).toLocaleString("en-IN", { minimumFractionDigits: paise % 100 ? 2 : 0, maximumFractionDigits: 2 })}`;
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-16 pt-8 sm:px-8">
-      <header className="flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          GhostCart
-        </Link>
-        <Link href="/sell" className="text-muted hover:text-fg">
-          Sell with GhostCart
-        </Link>
-      </header>
-      <h1 className="mt-14 text-[clamp(2rem,5vw,3.25rem)] font-bold leading-[1] tracking-[-0.02em]">You pay only when your agent makes a sale.</h1>
+      <h1 className="mt-4 text-[clamp(2rem,5vw,3.25rem)] font-bold leading-[1] tracking-[-0.02em]">You pay only when your agent makes a sale.</h1>
       <p className="mt-5 max-w-xl text-lg text-muted">
         No sign-up fee, no monthly fee. GhostCart takes {pct(bps)} of each sale won through a haggle, plus 18% GST on that fee. Haggles that don&apos;t end in a sale cost
         you nothing.
