@@ -43,6 +43,7 @@ pnpm --filter @ghostcart/web build   # must pass: Next 16 cacheComponents enforc
 | Channel plumbing (common message shape, Meta and Shopify signatures and OAuth) | `packages/channels` |
 | Negotiation API for every channel, typed client | `apps/web/src/app/api/v1/sessions`, `packages/sdk`, [docs/api.md](docs/api.md) |
 | Load tests (k6) | `load/`, [load/README.md](load/README.md) |
+| Haggle reels for seller outreach (batch 9:16 recordings of a scripted haggle on a seller's own product) | `apps/web/scripts/haggle-reels.mts`, rules and offers in `apps/web/scripts/haggle-reels/plan.ts`; see README |
 | UI | `apps/web/src/app/*` pages, `apps/web/src/components/*` |
 
 ## Rules we learned the hard way

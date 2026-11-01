@@ -49,6 +49,9 @@ backfill-export-*.json
 # Embedded Postgres data for local development
 .pglite/
 
+# Haggle reels: rendered outreach videos (apps/web/scripts/haggle-reels.mts)
+reels/
+
 # Local-dev uploads (deployments use Vercel Blob)
 apps/web/public/uploads/
 
