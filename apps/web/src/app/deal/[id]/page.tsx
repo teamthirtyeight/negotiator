@@ -1,18 +1,9 @@
-import Link from "next/link";
 import { Suspense } from "react";
 import { DealTerminal } from "@/components/deal-terminal";
 
 export default function DealPage({ params }: PageProps<"/deal/[id]">) {
   return (
     <main className="flex flex-1 flex-col px-4 pb-16 pt-8 sm:px-8">
-      <header className="mx-auto mb-12 flex w-full max-w-5xl items-center justify-between">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          GhostCart
-        </Link>
-        <Link href="/dashboard" className="text-muted hover:text-fg">
-          Live deals
-        </Link>
-      </header>
       <Suspense fallback={<p className="text-center text-muted">Loading your deal…</p>}>
         <Terminal params={params} />
       </Suspense>

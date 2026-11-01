@@ -6,15 +6,7 @@ export const metadata = { title: "GhostCart · Log in" };
 export default function LoginPage() {
   return (
     <main className="mx-auto flex w-full max-w-md flex-1 flex-col px-4 pb-16 pt-8">
-      <header className="flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          GhostCart
-        </Link>
-        <Link href="/sell" className="text-muted hover:text-fg">
-          For sellers
-        </Link>
-      </header>
-      <h1 className="mt-14 text-3xl font-bold tracking-tight">Welcome back</h1>
+      <h1 className="mt-4 text-3xl font-bold tracking-tight">Welcome back</h1>
       <p className="mt-2 text-muted">No passwords. We call your number and read out a one-time code.</p>
       <div className="mt-8">
         <BuyerLogin />
