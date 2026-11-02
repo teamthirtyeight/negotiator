@@ -11,6 +11,6 @@
     "check": "turbo run typecheck lint test build"
   },
   "devDependencies": {
-    "turbo": "2.5.8"
+    "turbo": "2.11.10"
   }
 }
